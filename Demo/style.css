@@ -1,0 +1,12 @@
+button 
+{
+    height: 100px;
+    width: 300px;
+    font-size: 28px;
+    color: white;
+    background-color: tomato;
+    border: none;
+}
+button:hover {
+    background-color: wheat;
+  }

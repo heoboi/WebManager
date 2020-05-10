@@ -1,0 +1,28 @@
+extends ../layouts/common.pug 
+
+block content 
+  h1 
+    span.mr-3 Users  <!-- Kế thừa header từ common.pug-->
+    a.btn.btn-primary(href="/users/create") New
+  .d-flex.align-items-center
+    form.ml-auto(action ="/users/search", method = "GET", class="d-flex")
+        input.mr-3(type = "text", name = "q", id = "input-field", class = "form-control")
+        button(class="btn btn-primary") Search
+  table.table
+    tr 
+      th Name 
+      th Phone 
+      th Details
+    each user in users 
+      tr 
+        td= user.name
+        td= user.phone
+        td
+          a.btn.btn-Light(href='/users/'+user.id) View
+  script.
+      var searchInput = document.getElementById("input-field");
+      var value = searchInput.value;
+      searchInput.addEventListener('change', function() {
+          sessionStorage.setItem('draft', searchInput.value);
+      })
+      searchInput.value = sessionStorage.getItem('draft');
