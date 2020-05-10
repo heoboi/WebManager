@@ -34,29 +34,12 @@ module.exports.get = function (req,res) { //
 };
 
 module.exports.create = function(req,res){
+    console.log(req.cookies);
     res.render('users/create');
 };
 
 module.exports.postCreate = function(req,res){
     req.body.id = shortid.generate();
-    var errors = [];
-    if(!req.body.name)
-    {
-        errors.push('Name is required.');
-    }
-    if(!req.body.phone) 
-    {
-        errors.push('Phone is required');
-    }
-    if (errors.length)
-    {
-        //false => Không lưu lại
-        res.render('users/create', {
-            errors: errors ,
-            values: req.body
-        });
-        return ;
-    }
     db.get('users').push(req.body).write();
    // users.push(req.body); // thêm dữ liệu đã nhập vào Memmory => nhưng khi tắt server mở lại thì sẽ mất
     res.redirect('/users/'); // tự động gửi request quay lại trang user
