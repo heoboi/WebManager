@@ -16,9 +16,22 @@ namespace BookStoreMVC.Controllers
         private BookContext db = new BookContext();
 
         // GET: Book
-        public ActionResult Index()
+        public ActionResult Index(string id)
         {
-            return View(db.Books.ToList());
+            if (id == null)
+                return View(db.Books.ToList());
+            else
+            {
+                var books = from m in db.Books
+                            select m;
+
+                if (!String.IsNullOrEmpty(id))
+                {
+                    books = books.Where(s => s.BookName.Contains(id));
+                }
+
+                return View(books);
+            }
         }
 
         // GET: Book/Details/5
@@ -123,6 +136,20 @@ namespace BookStoreMVC.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult Search (string id)
+        {
+            string searchString = id;
+            var books = from m in db.Books
+                         select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                books = books.Where(s => s.BookName.Contains(searchString));
+            }
+
+            return View(books);
         }
     }
 }

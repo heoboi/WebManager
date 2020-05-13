@@ -3,41 +3,10 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<!---
-    <div class="color-jumpotron container-fluid">
-  
-<div class="jumbotron text-center">
-    <div class="row">
-        <div class="col-sm-6">
-            <h1 class=" title-font">
-                Book Store <br>
-                Managment
-            </h1>
-            <h3>
-                Exploring your new world
-            </h3>
-            <form class="form-inline">
-                <div class="input-group">
-                    <input type="text" class="form-control" size="50" placeholder="The little prince">
-                </div>
-            </form>
-        </div>
-        <div class="col-sm-5">
-            <img src="https://i.pinimg.com/564x/fa/47/10/fa47101555be04210c41486ad438a969.jpg" class="center-block img-responsive img-circle ">
-        </div>
-    </div>
-</div>
-
-
-</div>
 
 
 
-
-    -->
-
-
-<div class="jumbotron text-center">
+<div id="home" class="jumbotron text-center ">
     <h1 class="title-font">Book Store Managment</h1>
     <p>We specialize in managing your book world</p>
     <form class="form-inline ">
@@ -50,7 +19,7 @@
     </form>
 </div>
 <!-- Container (About Section) -->
-<div id="about" class="container-fluid">
+<div id="about" class="container-fluid slideanim">
     <div class="row col-container">
         <div class="col-sm-8">
             <h2>About Company Page</h2><br>
@@ -59,12 +28,12 @@
             
         </div>
         <div class="col-sm-4">
-            <img src="https://i.pinimg.com/564x/fa/47/10/fa47101555be04210c41486ad438a969.jpg" class="center-block img-responsive img-circle ">
+            <img src="https://i.pinimg.com/564x/fa/47/10/fa47101555be04210c41486ad438a969.jpg" class="center-block img-responsive img-circle slideanim">
         </div>
     </div>
 </div>
 
-<div class="container-fluid bg-grey">
+<div class="container-fluid bg-grey slideanim">
     <div class="row">
         <div class="col-sm-4 center-block">
             <span class="glyphicon glyphicon-globe logo slideanim center-block"></span>
@@ -192,38 +161,12 @@
 <!-- Container (Contact Section) -->
 <div id="contact" class="container-fluid bg-grey">
     <h2 class="text-center">CONTACT</h2>
-    <div class="row">
-        <div class="col-sm-5">
+    <div class="row text-center">
+        <div class="col-sm-12">
             <p>Contact us and we'll get back to you within 24 hours.</p>
-            <p><span class="glyphicon glyphicon-map-marker"></span> Chicago, US</p>
+            <p><span class="glyphicon glyphicon-map-marker"></span> TPHCM, VN</p>
             <p><span class="glyphicon glyphicon-phone"></span> +00 1515151515</p>
-            <p><span class="glyphicon glyphicon-envelope"></span> myemail@something.com</p>
-        </div>
-        <div class="col-sm-7 slideanim">
-            <div class="row">
-                <div class="col-sm-6 form-group">
-                    <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
-                </div>
-                <div class="col-sm-6 form-group">
-                    <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
-                </div>
-            </div>
-            <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
-            <div class="row">
-                <div class="col-sm-12 form-group">
-                    <button class="btn btn-default pull-right" type="submit">Send</button>
-                </div>
-            </div>
+            <p><span class="glyphicon glyphicon-envelope"></span> 18520109@gm.uit.edu.vn</p>
         </div>
     </div>
 </div>
-
-<!-- Image of location/map -->
-<img src="/w3images/map.jpg" class="w3-image w3-greyscale-min" style="width:100%">
-
-<footer class="container-fluid text-center">
-    <a href="#myPage" title="To Top">
-        <span class="glyphicon glyphicon-chevron-up"></span>
-    </a>
-    <p>Bootstrap Theme Made By <a href="https://www.w3schools.com" title="Visit w3schools">www.w3schools.com</a></p>
-</footer>
