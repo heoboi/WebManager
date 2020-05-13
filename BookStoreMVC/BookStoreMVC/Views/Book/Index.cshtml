@@ -7,10 +7,29 @@
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
+<div style="margin-left: 5%; margin-bottom: 1%">
+    <div class="row">
+        <div class="col-sm-8">
+            <div>
+                @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+            </div>
+           
+
+        </div>
+        <div  class="col-sm-4">
+            @using (Html.BeginForm("Index", "Book", FormMethod.Get))
+            {
+                <div class="row">
+                   @Html.TextBox("id", null, new { @class = "form-control form-right"}) <span class="icon-bar"> &nbsp &nbsp</span>
+                    <input type="submit" value="Search" class="btn btn-primary" />
+                </div>
+            }
+        </div>
+    </div>
+    
+    
+</div>
+<table class="table" style="margin-left: 1% ; margin-right: 1%">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.BookName)
@@ -23,9 +42,6 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ProducedDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BookImage)
         </th>
         <th></th>
     </tr>
