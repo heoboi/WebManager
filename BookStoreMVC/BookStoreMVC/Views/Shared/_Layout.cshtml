@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using BookStoreMVC.CustomHelpers
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -8,98 +9,128 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-
-    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" media="screen" runat="server">
-    <script src="@Url.Content("~/Scripts/jquery-3.3.1.min.js")"
+    <link href="@Url.ContentVersioned("~/Content/Site.css")" rel="stylesheet" type="text/css" media="screen" runat="server">
+    <script src="@Url.ContentVersioned("~/Scripts/jquery-3.3.1.min.js")"
             type="text/javascript"></script>
-    <script src="@Url.Content("~/Scripts/modernizr-1.7.min.js")"
+    <script src="@Url.ContentVersioned("~/Scripts/modernizr-1.7.min.js")"
             type="text/javascript"></script>
 
 
 
 
 </head>
-<body>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
     <!--Menu (Sidebar)-->
-    
     <!--Header (Navbar)-->
-    <div>
-        <header>
-        <nav  class="navbar navbar-default navbar-fixed-top ">
-            <div class="container-fluid">
-                <div class="collapse navbar-collapse" id="myNavbar">
-                    <ul class="nav navbar-nav navbar-left">
-                        <li class="active">
-                            <a href="#">
-                                HOME
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                BOOKS
-                            </a>
-                        </li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                SELL
-                            </a>
+    @*<div>
+            <header>
+                <nav class="navbar navbar-default navbar-fixed-top ">
+                    <div class="color-jumpotron container-fluid">
+                        <div class=" collapse navbar-collapse" id="myNavbar">
+                            <ul class="nav navbar-nav navbar-left">
+                                <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Home" ? "active" : "")">
+                                <a href="@Url.Action("Index", "Home")">
+                                    HOME
+                                </a>
+                                </li>
+                                <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Book" ? "active" : "")">
+                                    <a href="@Url.Action("Index", "Book")">
+                                        BOOKS
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        CONTACT US
+                                    </a>
+                                </li>
 
-                            <ul class="dropdown-menu">
-                                <li>SELL</li>
-                                <li>Invoice</li>
                             </ul>
-                        </li>
-                        <li>
-                            <a href="#">
-                                COSTUMER
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                EMPLOYEE
-                            </a>
-                        </li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                REPORT
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li>Inventory Report</li>
-                                <li>Debt Report</li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                SETTINGS
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li>Rules</li>
-                                <li>Price</li>
-                            </ul>
-                        </li>
+                        </div>
+                    </div>
 
-                        <li>
-                            <a href="#">
-                                CONTACT US
-                            </a>
-                        </li>
-
-                    </ul>
-                </div>
+                </nav>
+            </header>
+        </div>*@
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#myPage">Logo</a>
             </div>
-            
-        </nav>
-        </header>
-    </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Home" ? "active" : "")">
+                        <a href="@Url.Action("Index", "Home")">
+                            HOME
+                        </a>
+                    </li>
+                    <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Book" ? "active" : "")">
+                        <a href="@Url.Action("Index", "Book")">
+                            BOOKS
+                        </a>
+                    </li>
+                    <li><a href="#about">ABOUT</a></li>
+                    <li><a href="#services">SERVICES</a></li>
+                    <li><a href="#pricing">PRICING</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <div>
         <!--Body-->
         <div>
             @RenderBody()
         </div>
-        
+
     </div>
+
+    <script>
+        $(document).ready(function () {
+            // Add smooth scrolling to all links in navbar + footer link
+            $(".navbar a, footer a[href='#myPage']").on('click', function (event) {
+                // Make sure this.hash has a value before overriding default behavior
+                if (this.hash !== "") {
+                    // Prevent default anchor click behavior
+                    event.preventDefault();
+
+                    // Store hash
+                    var hash = this.hash;
+
+                    // Using jQuery's animate() method to add smooth page scroll
+                    // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 900, function () {
+
+                        // Add hash (#) to URL when done scrolling (default click behavior)
+                        window.location.hash = hash;
+                    });
+                } // End if
+            });
+
+            $(window).scroll(function () {
+                $(".slideanim").each(function () {
+                    var pos = $(this).offset().top;
+
+                    var winTop = $(window).scrollTop();
+                    if (pos < winTop + 600) {
+                        $(this).addClass("slide");
+                    }
+                });
+            });
+        })
+    </script>
 </body>
 </html>
