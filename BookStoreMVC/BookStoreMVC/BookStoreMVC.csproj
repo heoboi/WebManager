@@ -131,6 +131,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="CustomHelpers\CustomHelpers.cs" />
     <Compile Include="Data\BookContext.cs" />
     <Compile Include="Data\BookInitializer.cs" />
     <Compile Include="Global.asax.cs">
