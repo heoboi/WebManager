@@ -9,13 +9,18 @@
 <div id="home" class="jumbotron text-center ">
     <h1 class="title-font">Book Store Managment</h1>
     <p>We specialize in managing your book world</p>
-    <form class="form-inline ">
+    <form action="/Book" class="form-inline ">
+        
+        @using (Html.BeginForm("Index", "Book", FormMethod.Get))
+        {
         <div class="input-group">
-            <input type="email" class="form-control" size="50" placeholder="Book you want to find" required>
+            @Html.TextBox("id", null, new { @class = "form-control" })
             <div class="input-group-btn">
-                <button type="button" class="btn btn-danger">Find</button>
+                <input type="submit" onclick="SearchBook(id)" value="Search" class="btn btn-danger" />
             </div>
         </div>
+        }
+
     </form>
 </div>
 <!-- Container (About Section) -->
@@ -170,3 +175,11 @@
         </div>
     </div>
 </div>
+
+<script>
+    function SearchBook(id) {
+        var id = document.getElementById(id);
+        var link = '/Book?id=';
+        return link = link + id;
+    }
+</script>

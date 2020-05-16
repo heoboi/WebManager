@@ -252,3 +252,11 @@ footer .glyphicon {
     width: inherit;
     text-align: right
 }
+
+.input-group-addon, .input-group-btn {
+    vertical-align: top;
+}
+
+/*.input-group-addon, .input-group-btn {
+    padding-left:10px
+}*/
